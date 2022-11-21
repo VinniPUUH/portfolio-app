@@ -2,9 +2,11 @@ import { IAlertState } from "./types";
 
 const reducer = {
   SET_ALERT: (state: IAlertState, { payload }: any) => {
-    if (state.alerts.find((alert) => alert?.id === payload.id))
-      return { ...state };
-    return { ...state, alerts: [...state.alerts, payload] };
+    const filteredAlerts = state.alerts.filter(
+      (alert) => alert?.id !== payload.id
+    );
+
+    return { ...state, alerts: [...filteredAlerts, payload] };
   },
   DELETE_ALERT: (state: IAlertState, { payload }: any) => {
     return {

@@ -16,11 +16,14 @@ const useAuthorSibscribe = (
         setSubscribed(false);
         setAlert({
           id: `card-${id}`,
-          message: "You unsubscribed from the author",
+          message: "You unsubscribed from the author!",
         });
       } else {
         setSubscribed(true);
-        setAlert({ id: `card-${id}`, message: "You subscribed to the author" });
+        setAlert({
+          id: `card-${id}`,
+          message: "You subscribed to the author!",
+        });
       }
     },
     [isSubscribed, setSubscribed, id]
